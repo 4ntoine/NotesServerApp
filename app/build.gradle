@@ -1,0 +1,22 @@
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+bootJar {
+    baseName = 'notes-server-app'
+    version = '0.8.0'
+}
+
+dependencies {
+    implementation project(':domain')
+    implementation project(':app-api')
+    implementation project(':app-impl')
+    implementation project(':infra-gateway-ormlite')
+    implementation project(':infra-rest-spring')
+
+    // for some reason transitive dependencies from project(':infra-gateway-ormlite') are not added by Gradle automatically
+    implementation 'com.h2database:h2:1.4.199'
+    implementation 'com.j256.ormlite:ormlite-jdbc:4.45'
+
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.jetbrains.kotlin:kotlin-reflect:1.3.31'
+}
