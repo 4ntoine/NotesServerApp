@@ -19,4 +19,6 @@ dependencies {
 
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.jetbrains.kotlin:kotlin-reflect:1.3.31'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
