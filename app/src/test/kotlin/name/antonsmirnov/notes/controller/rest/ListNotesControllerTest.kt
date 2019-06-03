@@ -1,4 +1,4 @@
-package name.antonsmirnov.notes.controller
+package name.antonsmirnov.notes.controller.rest
 
 import name.antonsmirnov.notes.usecase.ListNotes
 import org.junit.Test
@@ -12,7 +12,7 @@ import kotlin.test.assertEquals
 
 @RunWith(SpringRunner::class)
 @SpringBootTest
-class ListNotesRestControllerTest {
+class ListNotesControllerTest {
     companion object {
         private const val id = "id"
         private const val title = "title"
@@ -20,12 +20,12 @@ class ListNotesRestControllerTest {
     }
 
     @Autowired
-    private lateinit var controller: ListNotesRestController
+    private lateinit var controller: ListNotesController
 
     @Configuration
     class UseCaseConfiguration {
         @Bean
-        fun getListNotesController() = ListNotesRestController(object : ListNotes {
+        fun getListNotesController() = ListNotesController(object : ListNotes {
             override fun execute(): ListNotes.Response =
                     ListNotes.Response(listOf(ListNotes.Note(id, title, body)))
         })

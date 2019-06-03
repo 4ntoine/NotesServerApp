@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package name.antonsmirnov.notes.controller.grpc;
+option java_package = "name.antonsmirnov.notes.controller.grpc";
+option java_multiple_files = true;
+
+import "google/protobuf/wrappers.proto";
+
+// messages
+
+// request model
+message AddNoteRequest {
+    string title = 1; // required
+    google.protobuf.StringValue body = 2; // optional
+}
+
+// response model
+message AddNoteResponse {
+    string id = 1;
+}
+
+// RPC
+
+service AddNoteController {
+    rpc add (AddNoteRequest) returns (AddNoteResponse) {};
+}
+
+
+
+

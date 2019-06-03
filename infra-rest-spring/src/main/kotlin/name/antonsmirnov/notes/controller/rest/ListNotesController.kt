@@ -1,11 +1,11 @@
-package name.antonsmirnov.notes.controller
+package name.antonsmirnov.notes.controller.rest
 
 import name.antonsmirnov.notes.usecase.ListNotes
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-class ListNotesRestController(private val useCase: ListNotes) {
+class ListNotesController(private val useCase: ListNotes) {
 
     // no request model required
 

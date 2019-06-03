@@ -1,0 +1,19 @@
+apply plugin: 'com.google.protobuf'
+
+dependencies {
+    implementation project(':app-api')
+
+    implementation "io.grpc:grpc-netty-shaded:$rootProject.grpc_version"
+    implementation "io.grpc:grpc-protobuf:$rootProject.grpc_version"
+    implementation "io.grpc:grpc-stub:$rootProject.grpc_version"
+}
+
+protobuf {
+    protoc { artifact = 'com.google.protobuf:protoc:3.5.1-1' }
+    plugins {
+        grpc { artifact = "io.grpc:protoc-gen-grpc-java:$rootProject.grpc_version" }
+    }
+    generateProtoTasks {
+        all()*.plugins { grpc {} }
+    }
+}

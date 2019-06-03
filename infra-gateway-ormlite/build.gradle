@@ -1,6 +1,6 @@
 dependencies {
     implementation project(':domain')
 
-    implementation 'com.h2database:h2:1.4.199'
-    implementation 'com.j256.ormlite:ormlite-jdbc:4.45'
+    implementation "com.h2database:h2:$rootProject.h2_version"
+    implementation "com.j256.ormlite:ormlite-jdbc:$rootProject.ormlite_version"
 }

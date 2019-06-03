@@ -1,4 +1,4 @@
-package name.antonsmirnov.notes.controller
+package name.antonsmirnov.notes.controller.rest
 
 import name.antonsmirnov.notes.usecase.AddNote
 import org.junit.Test
@@ -12,19 +12,19 @@ import kotlin.test.assertEquals
 
 @RunWith(SpringRunner::class)
 @SpringBootTest
-class AddNoteRestControllerTest {
+class AddNoteControllerTest {
     companion object {
         private const val title = "title"
         private const val body = "body"
     }
 
     @Autowired
-    private lateinit var controller: AddNoteRestController
+    private lateinit var controller: AddNoteController
 
     @Configuration
     class UseCaseConfiguration {
         @Bean
-        fun getAddNoteController() = AddNoteRestController(object : AddNote {
+        fun getAddNoteController() = AddNoteController(object : AddNote {
             override fun execute(request: AddNote.Request): AddNote.Response =
                     AddNote.Response("${request.title}_${request.body}")
         })
@@ -32,7 +32,7 @@ class AddNoteRestControllerTest {
 
     @Test
     fun testAddNote() {
-        val request = AddNoteRestController.AddNoteRequestJson(title, body)
+        val request = AddNoteController.AddNoteRequestJson(title, body)
         val response = controller.add(request)
 
         assertEquals("${request.title}_${request.body}", response.id)

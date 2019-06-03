@@ -1,11 +1,11 @@
-package name.antonsmirnov.notes.controller
+package name.antonsmirnov.notes.controller.rest
 
 import name.antonsmirnov.notes.usecase.AddNote
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-class AddNoteRestController(private val useCase: AddNote) {
+class AddNoteController(private val useCase: AddNote) {
 
     /**
      * JSON dto for AddNote.Request

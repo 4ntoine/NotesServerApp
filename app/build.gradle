@@ -14,11 +14,11 @@ dependencies {
     implementation project(':infra-rest-spring')
 
     // for some reason transitive dependencies from project(':infra-gateway-ormlite') are not added by Gradle automatically
-    implementation 'com.h2database:h2:1.4.199'
-    implementation 'com.j256.ormlite:ormlite-jdbc:4.45'
+    implementation "com.h2database:h2:$rootProject.h2_version"
+    implementation "com.j256.ormlite:ormlite-jdbc:$rootProject.ormlite_version"
 
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.jetbrains.kotlin:kotlin-reflect:1.3.31'
+    implementation "org.jetbrains.kotlin:kotlin-reflect:$rootProject.kotlin_version"
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
