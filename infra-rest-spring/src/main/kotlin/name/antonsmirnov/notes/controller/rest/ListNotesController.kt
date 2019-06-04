@@ -17,16 +17,16 @@ class ListNotesController(private val useCase: ListNotes) {
     /**
      * JSON dto for AddNote.Response model
      */
-    data class ListNotesResponseJson(
+    data class ResponseJson(
         val notes: Collection<NoteJson>)
 
     @RequestMapping("/list")
-    fun list(): ListNotesResponseJson
+    fun list(): ResponseJson
     {
         // execute interactor
         val response = useCase.execute()
 
         // map canonical dto back to JSON dto and return
-        return ListNotesResponseJson(response.notes.map { NoteJson(it.id!!, it.title, it.body) })
+        return ResponseJson(response.notes.map { NoteJson(it.id!!, it.title, it.body) })
     }
 }

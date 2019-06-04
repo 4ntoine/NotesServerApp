@@ -10,18 +10,18 @@ class AddNoteController(private val useCase: AddNote) {
     /**
      * JSON dto for AddNote.Request
      */
-    data class AddNoteRequestJson(
+    data class RequestJson(
         val title: String,
         val body: String?)
 
     /**
      * JSON dto for AddNote.Response model
      */
-    data class AddNoteResponseJson(
+    data class ResponseJson(
         val id: String)
 
     @RequestMapping("/add")
-    fun add(requestJson: AddNoteRequestJson): AddNoteResponseJson {
+    fun add(requestJson: RequestJson): ResponseJson {
         // map JSON dto to canonical dto
         val request = AddNote.Request(requestJson.title, requestJson.body)
 
@@ -29,6 +29,6 @@ class AddNoteController(private val useCase: AddNote) {
         val response = useCase.execute(request)
 
         // map canonical dto back to JSON dto and return
-        return AddNoteResponseJson(response.id)
+        return ResponseJson(response.id)
     }
 }

@@ -32,7 +32,7 @@ class AddNoteControllerTest {
 
     @Test
     fun testAddNote() {
-        val request = AddNoteController.AddNoteRequestJson(title, body)
+        val request = AddNoteController.RequestJson(title, body)
         val response = controller.add(request)
 
         assertEquals("${request.title}_${request.body}", response.id)
