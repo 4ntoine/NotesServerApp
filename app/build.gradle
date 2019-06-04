@@ -7,15 +7,9 @@ bootJar {
 }
 
 dependencies {
-    implementation project(':domain')
-    implementation project(':app-api')
-    implementation project(':app-impl')
-    implementation project(':infra-gateway-ormlite')
-    implementation project(':infra-rest-spring')
-
-    // for some reason transitive dependencies from project(':infra-gateway-ormlite') are not added by Gradle automatically
-    implementation "com.h2database:h2:$rootProject.h2_version"
-    implementation "com.j256.ormlite:ormlite-jdbc:$rootProject.ormlite_version"
+    api project(':app-impl')
+    api project(':infra-gateway-ormlite')
+    api project(':infra-rest-spring')
 
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation "org.jetbrains.kotlin:kotlin-reflect:$rootProject.kotlin_version"

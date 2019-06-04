@@ -1,6 +1,6 @@
 dependencies {
-    implementation project(':domain')
+    api project(':app-api')
 
-    implementation "com.h2database:h2:$rootProject.h2_version"
-    implementation "com.j256.ormlite:ormlite-jdbc:$rootProject.ormlite_version"
+    api "com.h2database:h2:$rootProject.h2_version"
+    api "com.j256.ormlite:ormlite-jdbc:$rootProject.ormlite_version"
 }

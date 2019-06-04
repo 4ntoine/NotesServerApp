@@ -1,5 +1,5 @@
 dependencies {
-    implementation project(':app-api')
+    api project(':app-api')
 
     implementation 'org.springframework:spring-web:5.1.6.RELEASE'
 }
