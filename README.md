@@ -14,6 +14,12 @@ Here is a quick recap of the benefits that clean architecture brings:
 
 You can find few more README.md files in subdirectories.
 
+# Clean architecture implementation
+
+Find the classes in clean architecture diagram:
+
+![Clean architecture diagram](https://github.com/4ntoine/NotesServerApp/blob/master/images/my_clean_arch.png?raw=true)
+
 # Building
 
 	./gradlew :app:bootJar
