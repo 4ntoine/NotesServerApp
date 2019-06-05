@@ -20,6 +20,8 @@ Find the classes in clean architecture diagram:
 
 ![Clean architecture diagram](https://github.com/4ntoine/NotesServerApp/blob/master/images/my_clean_arch.png?raw=true)
 
+![Sequence diagram](https://github.com/4ntoine/NotesServerApp/blob/master/images/sequence.png?raw=true)
+
 # Building
 
 	./gradlew :app:bootJar
