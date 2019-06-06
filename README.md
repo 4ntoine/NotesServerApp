@@ -1,6 +1,6 @@
 # The project
 
-This is a server-side JVM application for simple notes keeping (you can add and list notes via Rest) implemented in [clean architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html) in Kotlin.
+This is a server-side JVM application for simple notes keeping (you can add and list notes via REST and gRPC) implemented in [clean architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html) in Kotlin.
 
 # The motivation
 
