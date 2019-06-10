@@ -2,6 +2,7 @@ ext {
     h2_version = '1.4.199'
     ormlite_version = '4.45'
     grpc_version = '1.21.0'
+    module_version = '1.0'
 }
 
 buildscript {

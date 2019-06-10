@@ -1,3 +1,8 @@
+group 'name.antonsmirnov.notes'
+version "$rootProject.module_version"
+
+apply plugin: 'maven-publish'
+
 dependencies {
     api project(':domain')
 }
