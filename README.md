@@ -50,6 +50,18 @@ Third, list the notes by navigating to URL `http://localhost:8080/list`
 
 ![List the notes](https://github.com/4ntoine/NotesServerApp/blob/master/images/list_notes.png?raw=true)
 
+# Frameworks and tools
+
+* [Kotlin](https://kotlinlang.org/) programming language
+* [IntelliJ IDEA](https://www.jetbrains.com/idea/) IDE for coding
+* [Gradle](https://gradle.org/) with Groovy DSL for building
+* [ORMLite](http://ormlite.com/) ORM for persistence
+* [H2](https://www.h2database.com/html/main.html) db engine for testing
+* [Spring Web](https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html) for HTTP REST
+* [Spring Boot](https://spring.io/projects/spring-boot) for configuration
+* [Google Protocol Buffers](https://developers.google.com/protocol-buffers) and [gRPC](https://grpc.io/) for RPC
+* [Travis CI](https://travis-ci.org/) for CI
+
 # Feedback
 
 Any feedback and discussion is appreciated.
