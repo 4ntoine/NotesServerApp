@@ -26,9 +26,9 @@ You can find few more README.md files in subdirectories.
 
 Find the classes in clean architecture diagram:
 
-![Clean architecture diagram](https://github.com/4ntoine/NotesServerApp/blob/master/images/my_clean_arch.png?raw=true)
+![Clean architecture diagram](images/arch/my_clean_arch.png?raw=true)
 
-![Sequence diagram](https://github.com/4ntoine/NotesServerApp/blob/master/images/sequence.png?raw=true)
+![Sequence diagram](images/arch/sequence.png?raw=true)
 
 # Building
 
@@ -48,13 +48,15 @@ First, run the app from IDE or command line:
 
 	./gradlew :app:bootRun
 
+![Application running](images/app/running.png?raw=true)
+
 Second, add a note by navigating to URL as follows `http://localhost:8080/add?title=title1&body=body1`:
 
-![Add a note](https://github.com/4ntoine/NotesServerApp/blob/master/images/add_note.png?raw=true)
+![Add a note](images/app/add_note.png?raw=true)
 
 Third, list the notes by navigating to URL `http://localhost:8080/list`
 
-![List the notes](https://github.com/4ntoine/NotesServerApp/blob/master/images/list_notes.png?raw=true)
+![List the notes](images/app/list_notes.png?raw=true)
 
 # Frameworks and tools
 
