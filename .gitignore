@@ -11,3 +11,6 @@
 # Ignore Gradle build output directory
 build
 out
+
+# iOS/macOS
+*.podspec

@@ -9,6 +9,17 @@ This is a server-side JVM application for simple notes keeping (you can add and 
 ## Client-side
 
 Check out according [client-side app(s)](https://github.com/4ntoine/NotesClientApp).
+`domain` and `app-api` are Kotlin Multiplatform modules.
+Install them to local Maven repository for the JVM clients:
+
+    ./gradlew publishToMavenLocal
+
+Generate CocoaPod specs for iOS clients (iOS simulator target only - `iosX64`):
+
+    ./gradlew podspec
+    
+Note: while Kotlin/Multiplatform is still experimental
+`-Xuse-experimental=kotlin.ExperimentalMultiplatform` compiler option is used.    
 
 # The motivation
 
@@ -60,9 +71,12 @@ Third, list the notes by navigating to URL `http://localhost:8080/list`
 
 # Frameworks and tools
 
-* [Kotlin](https://kotlinlang.org/) programming language
+* [Kotlin](https://kotlinlang.org/), [Kotlin/Native](https://kotlinlang.org/docs/reference/native-overview.html) programming language
+* [Kotlin Multiplatform](https://kotlinlang.org/docs/reference/multiplatform.html) for multiplatform configuration/building
 * [IntelliJ IDEA](https://www.jetbrains.com/idea/) IDE for coding
 * [Gradle](https://gradle.org/) with Groovy DSL for building
+* [Maven](https://maven.apache.org/) for dependency management (for JVM clients)
+* [CocoaPods](https://cocoapods.org/) for dependency management (for iOS/macOS clients)
 * [ORMLite](http://ormlite.com/) ORM for persistence
 * [H2](https://www.h2database.com/html/main.html) db engine for testing
 * [Spring Web](https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html) for HTTP REST

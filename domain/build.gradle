@@ -1,3 +1,28 @@
-dependencies {
-    // nothing
+plugins {
+    id 'kotlin-multiplatform'
+    id('org.jetbrains.kotlin.native.cocoapods')
+}
+
+kotlin {
+    targets {
+        jvm()
+        iosX64() // iOS simulator
+    }
+
+    sourceSets {
+        commonMain {
+            dependencies {
+                implementation 'org.jetbrains.kotlin:kotlin-stdlib'
+            }
+        }
+    }
+}
+
+version = "$rootProject.module_version"
+
+kotlin {
+    cocoapods {
+        summary = "Domain objects of NotesServerApp"
+        homepage = "https://github.com/4ntoine/NotesServerApp"
+    }
 }

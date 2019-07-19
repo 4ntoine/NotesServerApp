@@ -1,6 +1,8 @@
+os: osx
+osx_image: xcode10.2
 language: java
 jdk:
-  - oraclejdk8
+  - oraclejdk12
 sudo: false
 before_cache:
   - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
@@ -9,4 +11,6 @@ cache:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
 script:
+  - ./gradlew clean assemble
+  - ./gradlew podspec
   - ./gradlew clean test :app:bootJar

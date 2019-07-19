@@ -20,5 +20,6 @@ interface ListNotes {
     /**
      * Execute method ("Command" design pattern)
      */
+    @Throws
     fun execute(): Response
 }

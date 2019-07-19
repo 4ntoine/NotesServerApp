@@ -19,5 +19,6 @@ interface AddNote {
     /**
      * Execute method ("Command" design pattern)
      */
+    @Throws
     fun execute(request: Request): Response
 }
