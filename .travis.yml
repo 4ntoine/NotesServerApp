@@ -13,4 +13,5 @@ cache:
 script:
   - ./gradlew clean assemble
   - ./gradlew podspec
-  - ./gradlew clean test :app:bootJar
+  - ./gradlew clean test :app-spring:bootJar
+  - ./gradlew clean :app-micronaut:build

@@ -43,7 +43,13 @@ Find the classes in clean architecture diagram:
 
 # Building
 
-	./gradlew :app:bootJar
+## Spring
+
+	./gradlew :app-spring:bootJar
+
+## Micronaut
+
+	./gradlew :app-micronaut:build
 
 # Testing
 
@@ -81,6 +87,7 @@ Third, list the notes by navigating to URL `http://localhost:8080/list`
 * [H2](https://www.h2database.com/html/main.html) db engine for testing
 * [Spring Web](https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html) for HTTP REST
 * [Spring Boot](https://spring.io/projects/spring-boot) for configuration
+* [Micronaut](https://micronaut.io/) for microservices
 * [Google Protocol Buffers](https://developers.google.com/protocol-buffers) and [gRPC](https://grpc.io/) for RPC
 * [Travis CI](https://travis-ci.org/) for CI
 

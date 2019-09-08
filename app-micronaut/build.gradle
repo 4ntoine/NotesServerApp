@@ -1,0 +1,60 @@
+plugins {
+    id "org.jetbrains.kotlin.kapt"
+    id "org.jetbrains.kotlin.plugin.allopen"
+    id "com.github.johnrengelman.shadow" version "5.1.0"
+    id "application"
+}
+
+configurations {
+    // for dependencies that are needed for development only
+    developmentOnly
+}
+
+dependencies {
+    api project(':app-impl')
+    api project(':infra-gateway-ormlite')
+
+    implementation platform("io.micronaut:micronaut-bom:$rootProject.micronaut_version")
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$rootProject.kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-reflect:$rootProject.kotlin_version"
+    implementation "io.micronaut:micronaut-runtime"
+    implementation "io.micronaut:micronaut-http-server-netty"
+    implementation "io.micronaut:micronaut-http-client"
+    kapt platform("io.micronaut:micronaut-bom:$rootProject.micronaut_version")
+    kapt "io.micronaut:micronaut-inject-java"
+    kapt "io.micronaut:micronaut-validation"
+
+    runtimeOnly "com.fasterxml.jackson.module:jackson-module-kotlin:2.9.8"
+    runtimeOnly "ch.qos.logback:logback-classic:1.2.3"
+}
+
+mainClassName = "name.antonsmirnov.notes.Application"
+
+
+allOpen {
+    annotation("io.micronaut.aop.Around")
+}
+
+compileKotlin {
+    kotlinOptions {
+        jvmTarget = '1.8'
+        //Will retain parameter names for Java reflection
+        javaParameters = true
+    }
+}
+
+jar {
+    manifest {
+        attributes ('Main-Class': 'name.antonsmirnov.notes.Application')
+    }
+}
+
+shadowJar {
+    manifest {
+        inheritFrom project.tasks.jar.manifest
+    }
+    mergeServiceFiles()
+}
+
+run.classpath += configurations.developmentOnly
+run.jvmArgs('-noverify', '-XX:TieredStopAtLevel=1', '-Dcom.sun.management.jmxremote')
