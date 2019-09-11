@@ -8,7 +8,7 @@ import io.micronaut.http.annotation.Produces
 import javax.inject.Inject
 
 @Controller
-class AddNoteController {
+open class AddNoteController {
 
     @Inject
     private lateinit var useCase: AddNote
