@@ -12,7 +12,7 @@ configurations {
 
 dependencies {
     api project(':app-impl')
-    api project(':infra-gateway-ormlite')
+    api project(':infra-gateway-jpa')
 
     implementation platform("io.micronaut:micronaut-bom:$rootProject.micronaut_version")
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$rootProject.kotlin_version"

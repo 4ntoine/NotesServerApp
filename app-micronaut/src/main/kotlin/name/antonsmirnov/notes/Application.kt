@@ -1,17 +1,17 @@
 package name.antonsmirnov.notes
 
 import io.micronaut.runtime.Micronaut
-import com.j256.ormlite.jdbc.JdbcConnectionSource
 import name.antonsmirnov.notes.gateway.mapper.MapperImpl
 import name.antonsmirnov.notes.usecase.*
 import javax.inject.*
 import io.micronaut.context.annotation.*
+import javax.persistence.Persistence
 
 @Factory
 class Configuration {
-    val connectionSource = JdbcConnectionSource("jdbc:h2:mem:notes") // in-memory db
+    val entityManagerFactory = Persistence.createEntityManagerFactory("NotesProductionPersistenceUnit")
     val mapper = MapperImpl()
-    val gateway = OrmLiteGateway(connectionSource, mapper)
+    val gateway = JpaGateway(entityManagerFactory.createEntityManager(), mapper)
     val addNote: AddNote = AddNoteImpl(gateway)
     val listNotes: ListNotes = ListNotesImpl(gateway)
 
