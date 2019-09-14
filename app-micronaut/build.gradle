@@ -27,10 +27,17 @@ dependencies {
     runtimeOnly "com.fasterxml.jackson.module:jackson-module-kotlin:2.9.8"
     runtimeOnly "ch.qos.logback:logback-classic:1.2.3"
 
+    /*
+    kaptTest platform("io.micronaut:micronaut-bom:$rootProject.micronaut_version")
     kaptTest "io.micronaut:micronaut-inject-java"
     testCompile "io.micronaut.test:micronaut-test-junit5:1.1.1"
     testCompile "org.mockito:mockito-junit-jupiter:2.22.0"
     testRuntime "org.junit.jupiter:junit-jupiter-engine:5.1.0"
+     */
+
+    kaptTest "io.micronaut:micronaut-inject-java"
+    testImplementation "io.micronaut.test:micronaut-test-kotlintest:1.1.1"
+    testImplementation "io.kotlintest:kotlintest-runner-junit5:3.3.2"
 }
 
 mainClassName = "name.antonsmirnov.notes.Application"
@@ -48,6 +55,13 @@ compileKotlin {
     kotlinOptions {
         jvmTarget = '1.8'
         //Will retain parameter names for Java reflection
+        javaParameters = true
+    }
+}
+
+compileTestKotlin {
+    kotlinOptions {
+        jvmTarget = '1.8'
         javaParameters = true
     }
 }
