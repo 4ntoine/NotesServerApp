@@ -1,0 +1,7 @@
+dependencies {
+    api project(':app-api')
+
+    api "com.h2database:h2:$rootProject.h2_version"
+    compile "io.micronaut.configuration:micronaut-hibernate-jpa:$rootProject.micronaut_version"
+	compile "io.micronaut.configuration:micronaut-jdbc-hikari:$rootProject.micronaut_version"
+}
