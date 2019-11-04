@@ -8,14 +8,16 @@ import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.test.context.junit4.SpringRunner
+import java.util.Random
 import kotlin.test.assertEquals
 
 @RunWith(SpringRunner::class)
 @SpringBootTest
 class AddNoteControllerTest {
     companion object {
-        private const val title = "title"
-        private const val body = "body"
+        private val random = Random()
+        private val title = "title${random.nextInt()}"
+        private val body = "body${random.nextInt()}"
     }
 
     @Autowired
