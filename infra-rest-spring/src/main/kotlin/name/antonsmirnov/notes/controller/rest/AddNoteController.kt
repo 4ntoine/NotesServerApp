@@ -20,7 +20,7 @@ class AddNoteController(private val useCase: AddNote) {
     data class ResponseJson(
         val id: String)
 
-    @RequestMapping("/add")
+    @RequestMapping("/api/add")
     fun add(requestJson: RequestJson): ResponseJson {
         // map JSON dto to canonical dto
         val request = AddNote.Request(requestJson.title, requestJson.body)

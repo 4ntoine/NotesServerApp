@@ -20,7 +20,7 @@ class ListNotesController(private val useCase: ListNotes) {
     data class ResponseJson(
         val notes: Collection<NoteJson>)
 
-    @RequestMapping("/list")
+    @RequestMapping("/api/list")
     fun list(): ResponseJson
     {
         // execute interactor

@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Notes</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <h1>Notes: <span th:text="${notes.size()}"/></h1>
+
+    <table>
+        <tbody>
+        <tr th:each="note: ${notes}">
+            <td th:text="${note.id}">ID</td>
+            <td th:text="${note.title}">Title</td>
+            <td th:text="${note.body}">Body</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <br/>
+    <a th:href="@{/app/add}">Add note</a>
+</body>
+</html>

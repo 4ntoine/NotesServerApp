@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Note</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <h1>Add note</h1>
+
+    <form th:action="@{/app/add}" method="post" enctype="multipart/form-data">
+        <br/>Title:
+        <br/><input name="title"/>
+
+        <br/>Body:
+        <br/><input name="body"/>
+
+        <br/><input type="submit" value="Add note" name="button"/>
+    </form>
+
+    <br/>
+    <a th:href="@{/app/list}">List notes</a>
+</body>
+</html>

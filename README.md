@@ -61,13 +61,25 @@ First, run the app from IDE or command line:
 
 ![Application running](images/app/running.png?raw=true)
 
-Second, add a note by navigating to URL as follows `http://localhost:8080/add?title=title1&body=body1`:
+### URLs
+
+Add a note by navigating to URL as follows `http://localhost:8080/api/add?title=title1&body=body1`:
 
 ![Add a note](images/app/add_note.png?raw=true)
 
-Third, list the notes by navigating to URL `http://localhost:8080/list`
+List the notes by navigating to URL `http://localhost:8080/api/list`
 
 ![List the notes](images/app/list_notes.png?raw=true)
+
+### Simple UI
+
+Add a note at web page with URL `http://localhost:8080/app/add`:
+
+![Add a note](images/app/add_note_ui.png?raw=true)
+
+Make sure you can see added note (forwarded after adding) `http://localhost:8080/app/list`
+
+![List the notes](images/app/list_notes_ui.png?raw=true)
 
 # Frameworks and tools
 
@@ -80,6 +92,7 @@ Third, list the notes by navigating to URL `http://localhost:8080/list`
 * [ORMLite](http://ormlite.com/) ORM for persistence
 * [H2](https://www.h2database.com/html/main.html) db engine for testing
 * [Spring Web](https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html) for HTTP REST
+* [Spring MVC](https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html) for Front end
 * [Spring Boot](https://spring.io/projects/spring-boot) for configuration
 * [Google Protocol Buffers](https://developers.google.com/protocol-buffers) and [gRPC](https://grpc.io/) for RPC
 * [Travis CI](https://travis-ci.org/) for CI
