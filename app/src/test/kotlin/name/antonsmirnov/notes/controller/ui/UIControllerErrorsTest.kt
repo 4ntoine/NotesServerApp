@@ -18,12 +18,10 @@ import java.util.*
 
 @RunWith(SpringRunner::class)
 @WebMvcTest(ListNotesUIController::class)
-class ListNotesUIControllerTest {
+class UIControllerErrorsTest {
     companion object {
         private val random = Random()
-        private val id = UUID.randomUUID().toString()
-        private val title = "title${random.nextInt()}"
-        private val body = "body${random.nextInt()}"
+        private val errorMessage = "error${random.nextInt()}"
     }
 
     @Autowired
@@ -33,8 +31,9 @@ class ListNotesUIControllerTest {
     class UseCaseConfiguration {
         @Bean
         fun getListNotesController() = ListNotesUIController(object : ListNotes {
-            override fun execute(): ListNotes.Response =
-                    ListNotes.Response(listOf(ListNotes.Note(id, title, body)))
+            override fun execute(): ListNotes.Response {
+                throw RuntimeException(errorMessage)
+            }
         })
     }
 
@@ -44,8 +43,6 @@ class ListNotesUIControllerTest {
             .perform(get("/app/list"))
             .andDo(print())
             .andExpect(status().isOk())
-            .andExpect(content().string(containsString(id)))
-            .andExpect(content().string(containsString(title)))
-            .andExpect(content().string(containsString(body)))
+            .andExpect(content().string(containsString(errorMessage)))
     }
 }

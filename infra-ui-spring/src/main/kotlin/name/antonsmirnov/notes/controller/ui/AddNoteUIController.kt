@@ -1,10 +1,9 @@
 package name.antonsmirnov.notes.controller.ui
 
+import name.antonsmirnov.notes.usecase.AddNote
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.RequestMapping
-
-import name.antonsmirnov.notes.usecase.AddNote
 import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.RequestParam
 
@@ -19,7 +18,7 @@ class AddNoteUIController(private val useCase: AddNote) {
     @RequestMapping("/app/add", method = [RequestMethod.POST])
     fun add(@RequestParam title: String,
             @RequestParam body: String?,
-            model: Model): String {
+            model: Model): String = tryCatching(model) {
 
         // map request params to canonical dto
         val request = AddNote.Request(title, body)
@@ -28,6 +27,6 @@ class AddNoteUIController(private val useCase: AddNote) {
         useCase.execute(request)
 
         // forward to list notes
-        return "redirect:/app/list"
+        "redirect:/app/list"
     }
 }

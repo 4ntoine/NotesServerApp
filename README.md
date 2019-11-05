@@ -93,7 +93,8 @@ Make sure you can see added note (forwarded after adding) `http://localhost:8080
 * [H2](https://www.h2database.com/html/main.html) db engine for testing
 * [Spring Web](https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html) for HTTP REST
 * [Spring MVC](https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html) for Front end
-* [Spring Boot](https://spring.io/projects/spring-boot) for configuration
+* [Thymeleaf](https://www.thymeleaf.org/) for views templating
+* [Spring Boot](https://spring.io/projects/spring-boot) for bootstrapping
 * [Google Protocol Buffers](https://developers.google.com/protocol-buffers) and [gRPC](https://grpc.io/) for RPC
 * [Travis CI](https://travis-ci.org/) for CI
 
