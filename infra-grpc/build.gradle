@@ -1,7 +1,7 @@
 apply plugin: 'com.google.protobuf'
 
 dependencies {
-    implementation project(':app-api')
+    api project(':app-api')
 
     implementation "io.grpc:grpc-netty-shaded:$rootProject.grpc_version"
     implementation "io.grpc:grpc-protobuf:$rootProject.grpc_version"

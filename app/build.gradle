@@ -2,10 +2,10 @@ apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
 dependencies {
-    api project(':app-impl')
-    api project(':infra-gateway-ormlite')
-    api project(':infra-rest-spring')
-    api project(':infra-ui-spring')
+    implementation project(':app-impl')
+    implementation project(':infra-gateway-ormlite')
+    implementation project(':infra-rest-spring')
+    implementation project(':infra-ui-spring')
 
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation "org.jetbrains.kotlin:kotlin-reflect:$rootProject.kotlin_version"

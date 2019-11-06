@@ -1,6 +1,8 @@
 dependencies {
     api project(':app-api')
 
-    api "com.h2database:h2:$rootProject.h2_version"
+    implementation "com.h2database:h2:$rootProject.h2_version"
+
+    // `api` dependency as `JdbcConnectionSource` have to be reachable in the app for configuration
     api "com.j256.ormlite:ormlite-jdbc:$rootProject.ormlite_version"
 }
