@@ -86,7 +86,7 @@ Make sure you can see added note (forwarded after adding) `http://localhost:8080
 * [Kotlin](https://kotlinlang.org/), [Kotlin/Native](https://kotlinlang.org/docs/reference/native-overview.html) programming language
 * [Kotlin Multiplatform](https://kotlinlang.org/docs/reference/multiplatform.html) for multiplatform configuration/building
 * [IntelliJ IDEA](https://www.jetbrains.com/idea/) IDE for coding
-* [Gradle](https://gradle.org/) with Groovy DSL for building
+* [Gradle](https://gradle.org/) with Kotlin DSL for building
 * [Maven](https://maven.apache.org/) for dependency management (for JVM clients)
 * [CocoaPods](https://cocoapods.org/) for dependency management (for iOS/macOS clients)
 * [ORMLite](http://ormlite.com/) ORM for persistence

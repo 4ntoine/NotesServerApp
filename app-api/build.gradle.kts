@@ -1,8 +1,3 @@
-plugins {
-    id 'kotlin-multiplatform'
-    id('org.jetbrains.kotlin.native.cocoapods')
-}
-
 kotlin {
     jvm()
     iosX64() // iOS simulator
@@ -10,15 +5,18 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                implementation 'org.jetbrains.kotlin:kotlin-stdlib'
-                api project(':domain')
+                implementation(kotlin("stdlib-common"))
+                api(project(":domain"))
             }
         }
-        commonIos {
-
+        val commonIos by creating
+        getByName("iosX64Main").apply {
+            dependsOn(commonIos)
         }
-        iosX64Main {
-            dependsOn commonIos
+        getByName("jvmMain").apply {
+            dependencies {
+                implementation(kotlin("stdlib-jdk8"))
+            }
         }
     }
 
@@ -29,15 +27,11 @@ kotlin {
     targets.all {
         compilations.all {
             kotlinOptions {
-                freeCompilerArgs += '-Xuse-experimental=kotlin.ExperimentalMultiplatform'
+                freeCompilerArgs += "-Xuse-experimental=kotlin.ExperimentalMultiplatform"
             }
         }
     }
-}
 
-version = "$rootProject.module_version"
-
-kotlin {
     cocoapods {
         summary = "App API of NotesServerApp"
         homepage = "https://github.com/4ntoine/NotesServerApp"

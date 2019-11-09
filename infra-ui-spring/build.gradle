@@ -1,6 +1,0 @@
-dependencies {
-    api project(':app-api')
-
-    implementation 'org.springframework:spring-webmvc:5.1.6.RELEASE'
-    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf:2.2.0.RELEASE'
-}
