@@ -43,7 +43,17 @@ Find the classes in clean architecture diagram:
 
 # Building
 
-	./gradlew :app:bootJar
+Run using Spring:
+
+	./gradlew :app-spring:bootJar
+
+or Quarkus:
+
+    ./gradlew publishToMavenLocal
+	cd app-quarkus
+	./mvnw clean compile quarkus:dev
+
+Current Gradle support is not mature enough, so using Maven instead.
 
 # Testing
 
@@ -52,12 +62,16 @@ Find the classes in clean architecture diagram:
 One can find few unit tests that demonstrate some benefits of clean architecture for testing.
 
 	./gradlew test
+	./gradlew publishToMavenLocal
+	./cd app-quarkus
+	./mvnw test
+
 
 ## Manual testing
 
 First, run the app from IDE or command line:
 
-	./gradlew :app:bootRun
+	./gradlew :app-spring:bootRun
 
 ![Application running](images/app/running.png?raw=true)
 
@@ -87,7 +101,7 @@ Make sure you can see added note (forwarded after adding) `http://localhost:8080
 * [Kotlin Multiplatform](https://kotlinlang.org/docs/reference/multiplatform.html) for multiplatform configuration/building
 * [IntelliJ IDEA](https://www.jetbrains.com/idea/) IDE for coding
 * [Gradle](https://gradle.org/) with Kotlin DSL for building
-* [Maven](https://maven.apache.org/) for dependency management (for JVM clients)
+* [Maven](https://maven.apache.org/) for dependency management (for JVM clients and Quarkus)
 * [CocoaPods](https://cocoapods.org/) for dependency management (for iOS/macOS clients)
 * [ORMLite](http://ormlite.com/) ORM for persistence
 * [H2](https://www.h2database.com/html/main.html) db engine for testing
@@ -95,6 +109,8 @@ Make sure you can see added note (forwarded after adding) `http://localhost:8080
 * [Spring MVC](https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html) for Front end
 * [Thymeleaf](https://www.thymeleaf.org/) for views templating
 * [Spring Boot](https://spring.io/projects/spring-boot) for bootstrapping
+* [Quarkus](https://quarkus.io/) for AOT-compilation and bootstrapping
+* [GraalVM](https://www.graalvm.org/) for AOT-compilation into native binaries with Quarkus
 * [Google Protocol Buffers](https://developers.google.com/protocol-buffers) and [gRPC](https://grpc.io/) for RPC
 * [Travis CI](https://travis-ci.org/) for CI
 

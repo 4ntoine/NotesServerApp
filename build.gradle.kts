@@ -11,10 +11,12 @@ plugins {
     id("org.jetbrains.kotlin.multiplatform") version "1.3.50" apply false
     `java`
     `maven-publish`
+    `idea`
 }
 
 buildscript {
     repositories {
+        mavenCentral()
         jcenter()
         maven("https://plugins.gradle.org/m2/")
     }
@@ -29,12 +31,13 @@ buildscript {
 }
 
 fun isMultiplatformModule(moduleName: String) = (moduleName == "domain" || moduleName == "app-api")
-fun isEndAppModule(moduleName: String) = (moduleName == "app")
+fun isEndAppModule(moduleName: String) = (moduleName == "app-spring" || moduleName == "app-quarkus")
 
 subprojects {
 
     if (!isMultiplatformModule(name)) {
         apply(plugin = "org.jetbrains.kotlin.jvm")
+        apply(plugin = "org.jetbrains.kotlin.plugin.allopen")
     } else {
         apply(plugin = "org.jetbrains.kotlin.multiplatform")
         apply(plugin = "org.jetbrains.kotlin.native.cocoapods")
@@ -46,10 +49,10 @@ subprojects {
     apply(plugin = "maven-publish")
 
     if (!isMultiplatformModule(name)) {
-        project.java {
-            sourceCompatibility = JavaVersion.VERSION_1_8
-            targetCompatibility = JavaVersion.VERSION_1_8
-        }
+//        project.java {
+//            sourceCompatibility = JavaVersion.VERSION_1_8
+//            targetCompatibility = JavaVersion.VERSION_1_8
+//        }
 
         // there is no need to publish end user app as it's not a module that can be used to build some other app
         if (!isEndAppModule(name)) {

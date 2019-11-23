@@ -1,4 +1,4 @@
-package name.antonsmirnov.notes.usecase
+package name.antonsmirnov.notes.gateway
 
 import com.j256.ormlite.dao.Dao
 import com.j256.ormlite.dao.DaoManager
@@ -7,7 +7,7 @@ import com.j256.ormlite.table.TableUtils
 import name.antonsmirnov.notes.domain.Note as NoteDomainEntity
 import name.antonsmirnov.notes.gateway.Gateway
 import name.antonsmirnov.notes.gateway.mapper.Mapper
-import name.antonsmirnov.notes.gateway.Note as NoteDbEntity
+import name.antonsmirnov.notes.db.Note as NoteDbEntity
 
 /**
  * ORM Lite Gateway implementation

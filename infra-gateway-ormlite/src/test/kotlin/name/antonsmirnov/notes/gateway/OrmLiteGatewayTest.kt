@@ -4,7 +4,6 @@ import com.j256.ormlite.jdbc.JdbcConnectionSource
 import com.j256.ormlite.support.ConnectionSource
 import name.antonsmirnov.notes.domain.Note
 import name.antonsmirnov.notes.gateway.mapper.MapperImpl
-import name.antonsmirnov.notes.usecase.OrmLiteGateway
 import org.junit.Test
 import kotlin.test.AfterTest
 import kotlin.test.BeforeTest

@@ -1,6 +1,7 @@
 package name.antonsmirnov.notes
 
 import com.j256.ormlite.jdbc.JdbcConnectionSource
+import name.antonsmirnov.notes.gateway.OrmLiteGateway
 import name.antonsmirnov.notes.gateway.mapper.MapperImpl
 import name.antonsmirnov.notes.usecase.*
 import org.springframework.boot.SpringApplication

@@ -13,4 +13,7 @@ cache:
 script:
   - ./gradlew clean assemble
   - ./gradlew podspec
-  - ./gradlew clean test :app:bootJar
+  - ./gradlew clean test :app-spring:bootJar
+  - ./gradlew publishToMavenLocal
+  - cd ./app-quarkus
+  - ./mvnw package
