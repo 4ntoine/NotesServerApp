@@ -1,5 +1,5 @@
 plugins {
-    id("org.jetbrains.kotlin.plugin.jpa") version "1.3.50"
+    id("org.jetbrains.kotlin.plugin.jpa") version "1.3.60"
 }
 
 repositories {

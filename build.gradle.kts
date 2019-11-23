@@ -1,14 +1,14 @@
 val ormliteVersion by extra { "4.45" }
 val h2Version by extra { "1.4.199" }
-val kotlinVersion by extra { "1.3.50" }
+val kotlinVersion by extra { "1.3.60" }
 val springBootVersion by extra { "2.1.3.RELEASE" }
 val springMvcVersion by extra { "5.1.6.RELEASE" }
-val moduleVersion by extra { "1.2" }
+val moduleVersion by extra { "1.3" }
 val grpcVersion by extra { "1.21.0" }
 
 plugins {
-    id("org.jetbrains.kotlin.jvm") version "1.3.50" apply false
-    id("org.jetbrains.kotlin.multiplatform") version "1.3.50" apply false
+    id("org.jetbrains.kotlin.jvm") version "1.3.60" apply false
+    id("org.jetbrains.kotlin.multiplatform") version "1.3.60" apply false
     `java`
     `maven-publish`
     `idea`
@@ -22,8 +22,8 @@ buildscript {
     }
 
     dependencies {
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.50")
-        classpath("org.jetbrains.kotlin:kotlin-allopen:1.3.50")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.60")
+        classpath("org.jetbrains.kotlin:kotlin-allopen:1.3.60")
         classpath("org.springframework.boot:spring-boot-gradle-plugin:2.1.3.RELEASE")
         classpath("net.ltgt.gradle:gradle-apt-plugin:0.7")
         classpath("com.google.protobuf:protobuf-gradle-plugin:0.8.8")
