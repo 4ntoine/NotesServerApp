@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam
 class AddNoteUIController(private val useCase: AddNote) {
 
     @RequestMapping("/app/add", method = [RequestMethod.GET])
-    fun show(model: Model): String {
+    fun show(): String {
         return "addNote"
     }
 
