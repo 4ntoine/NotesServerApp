@@ -5,11 +5,9 @@ jdk:
   - oraclejdk12
 sudo: false
 before_cache:
-  - rm -rf $HOME/.gradle/caches/
   - rm -rf $HOME/.m2/repository/name/antonsmirnov/
 cache:
   directories:
-    - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
     - $HOME/.m2/
     - $HOME/.konan/
