@@ -50,22 +50,22 @@ Run using Spring:
 or Quarkus:
 
     ./gradlew publishToMavenLocal
-	cd app-quarkus
-	./mvnw clean compile quarkus:dev
+	./mvnw clean compile quarkus:dev -f app-quarkus/pom.xml
 
 Current Gradle support is not mature enough, so using Maven instead.
 
 # Testing
 
-## Unit testing
+## Unit/integration testing
 
 One can find few unit tests that demonstrate some benefits of clean architecture for testing.
 
 	./gradlew test
 	./gradlew publishToMavenLocal
-	./cd app-quarkus
-	./mvnw test
+	./mvnw test -f app-quarkus/pom.xml
 
+Integration testing of `app-spring-vaadin` is a bit tricky (one have to use commercial testing framework from Vaadin team [`Testbench`](https://vaadin.com/docs/testbench/testbench-overview.html) or 
+make `Selenide` working with `TestContainers` instead).
 
 ## Manual testing
 
@@ -85,15 +85,33 @@ List the notes by navigating to URL `http://localhost:8080/api/list`
 
 ![List the notes](images/app/list_notes.png?raw=true)
 
-### Simple UI
+### Simple UI (Spring MVC + Thymeleaf)
 
 Add a note at web page with URL `http://localhost:8080/app/add`:
 
-![Add a note](images/app/add_note_ui.png?raw=true)
+![Add a note](images/app/add_note_ui1.png?raw=true)
 
 Make sure you can see added note (forwarded after adding) `http://localhost:8080/app/list`
 
-![List the notes](images/app/list_notes_ui.png?raw=true)
+![List the notes](images/app/list_notes_ui1.png?raw=true)
+
+### Simple UI (Vaadin)
+
+Make sure you've installed the modules into local Maven repo:
+
+	./gradlew publishToMavenLocal
+
+Run the app from command line:
+
+	./mvnw spring-boot:run -f app-spring-vaadin/pom.xml
+
+Add a note at web page with URL `http://localhost:8080/app/add`:
+
+![Add a note](images/app/add_note_ui2.png?raw=true)
+
+Make sure you can see added note (forwarded after adding) `http://localhost:8080/app/list`
+
+![List the notes](images/app/list_notes_ui2.png?raw=true)
 
 # Frameworks and tools
 
@@ -101,13 +119,14 @@ Make sure you can see added note (forwarded after adding) `http://localhost:8080
 * [Kotlin Multiplatform](https://kotlinlang.org/docs/reference/multiplatform.html) for multiplatform configuration/building
 * [IntelliJ IDEA](https://www.jetbrains.com/idea/) IDE for coding
 * [Gradle](https://gradle.org/) with Kotlin DSL for building
-* [Maven](https://maven.apache.org/) for dependency management (for JVM clients and Quarkus)
+* [Maven](https://maven.apache.org/) for dependency management (for JVM clients, Quarkus and Vaadin)
 * [CocoaPods](https://cocoapods.org/) for dependency management (for iOS/macOS clients)
 * [ORMLite](http://ormlite.com/) ORM for persistence
 * [H2](https://www.h2database.com/html/main.html) db engine for testing
 * [Spring Web](https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html) for HTTP REST
 * [Spring MVC](https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html) for Front end
 * [Thymeleaf](https://www.thymeleaf.org/) for views templating
+* [Vaadin](https://vaadin.com/) for Front end
 * [Spring Boot](https://spring.io/projects/spring-boot) for bootstrapping
 * [Quarkus](https://quarkus.io/) for AOT-compilation and bootstrapping
 * [GraalVM](https://www.graalvm.org/) for AOT-compilation into native binaries with Quarkus

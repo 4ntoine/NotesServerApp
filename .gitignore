@@ -17,3 +17,8 @@ target
 *.podspec
 
 local.properties
+
+# Vaadin
+node_modules
+webpack.*.js
+package*.json

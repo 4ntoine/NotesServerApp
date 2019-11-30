@@ -15,5 +15,5 @@ script:
   - ./gradlew podspec
   - ./gradlew clean test :app-spring:bootJar
   - ./gradlew publishToMavenLocal
-  - cd ./app-quarkus
-  - ./mvnw package
+  - ./mvnw package -f app-quarkus/pom.xml
+  - ./mvnw package -f app-spring-vaadin/pom.xml
