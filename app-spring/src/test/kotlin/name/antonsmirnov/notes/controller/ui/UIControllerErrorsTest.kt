@@ -31,7 +31,7 @@ class UIControllerErrorsTest {
     class UseCaseConfiguration {
         @Bean
         fun getListNotesController() = ListNotesUIController(object : ListNotes {
-            override fun execute(): ListNotes.Response {
+            override suspend fun execute(): ListNotes.Response {
                 throw RuntimeException(errorMessage)
             }
         })

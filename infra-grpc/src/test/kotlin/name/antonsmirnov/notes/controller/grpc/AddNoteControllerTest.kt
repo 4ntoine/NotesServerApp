@@ -13,7 +13,7 @@ class AddNoteControllerTest : BaseControllerTest() {
     }
 
     override fun getController() = AddNoteController(object : AddNote {
-        override fun execute(request: AddNote.Request): AddNote.Response =
+        override suspend fun execute(request: AddNote.Request): AddNote.Response =
                 AddNote.Response("${request.title}_${request.body}")
     })
 

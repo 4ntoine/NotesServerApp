@@ -29,7 +29,7 @@ class ListNotesControllerTest {
     class UseCaseConfiguration {
         @Bean
         fun getListNotesController() = ListNotesController(object : ListNotes {
-            override fun execute(): ListNotes.Response =
+            override suspend fun execute(): ListNotes.Response =
                     ListNotes.Response(listOf(ListNotes.Note(id, title, body)))
         })
     }

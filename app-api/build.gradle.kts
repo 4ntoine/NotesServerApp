@@ -6,6 +6,10 @@ kotlin {
         commonMain {
             dependencies {
                 implementation(kotlin("stdlib-common"))
+                // for `runBlocking`
+                // nit: `..-core-common`should be used here and `..-core` in all the dependent modules
+                // but just using `..-core` with `api` dependency type for simplicity
+                api("org.jetbrains.kotlinx:kotlinx-coroutines-core:${rootProject.extra["coroutinesVersion"]}")
                 api(project(":domain"))
             }
         }

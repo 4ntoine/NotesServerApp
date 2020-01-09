@@ -3,8 +3,10 @@ val h2Version by extra { "1.4.199" }
 val kotlinVersion by extra { "1.3.60" }
 val springBootVersion by extra { "2.1.3.RELEASE" }
 val springMvcVersion by extra { "5.1.6.RELEASE" }
-val moduleVersion by extra { "1.3" }
+val moduleVersion by extra { "2.0" }
 val grpcVersion by extra { "1.21.0" }
+val coroutinesVersion by extra { "1.3.3" }
+val coroutinesTestVersion by extra { "1.3.3" }
 
 plugins {
     id("org.jetbrains.kotlin.jvm") version "1.3.60" apply false

@@ -27,7 +27,7 @@ class AddNoteControllerTest {
     class UseCaseConfiguration {
         @Bean
         fun getAddNoteController() = AddNoteController(object : AddNote {
-            override fun execute(request: AddNote.Request): AddNote.Response =
+            override suspend fun execute(request: AddNote.Request): AddNote.Response =
                     AddNote.Response("${request.title}_${request.body}")
         })
     }

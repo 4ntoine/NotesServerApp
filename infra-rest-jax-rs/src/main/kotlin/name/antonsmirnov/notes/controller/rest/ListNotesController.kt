@@ -1,5 +1,6 @@
 package name.antonsmirnov.notes.controller.rest
 
+import kotlinx.coroutines.runBlocking
 import name.antonsmirnov.notes.usecase.ListNotes
 import javax.inject.Inject
 import javax.ws.rs.Consumes
@@ -30,12 +31,11 @@ class ListNotesController {
     @GET
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    fun list(): ResponseJson
-    {
+    fun list(): ResponseJson = runBlocking {
         // execute interactor
         val response = useCase.execute()
 
         // map canonical dto back to JSON dto and return
-        return ResponseJson(response.notes.map { NoteJson(it.id!!, it.title, it.body) })
+        ResponseJson(response.notes.map { NoteJson(it.id!!, it.title, it.body) })
     }
 }

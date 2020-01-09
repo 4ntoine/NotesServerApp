@@ -1,5 +1,6 @@
 package name.antonsmirnov.notes.controller.ui
 
+import kotlinx.coroutines.runBlocking
 import org.springframework.ui.Model
 
 /**
@@ -8,9 +9,11 @@ import org.springframework.ui.Model
  * @param block lambda with errors handling
  * @return template name according to Thymeleaf agreement
  */
-fun tryCatching(model: Model, block: () -> String): String {
+fun tryCatching(model: Model, block: suspend () -> String): String {
     try {
-        return block()
+        return runBlocking {
+            block()
+        }
     } catch (e: Exception) {
         model.addAttribute("error", e)
         return "error"

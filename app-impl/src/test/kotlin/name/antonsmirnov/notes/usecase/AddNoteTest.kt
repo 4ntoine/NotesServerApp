@@ -1,12 +1,13 @@
 package name.antonsmirnov.notes.usecase
 
+import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Test
 import kotlin.test.assertTrue
 
 class AddNoteTest : UseCaseTest() {
     private val useCase: AddNote = AddNoteImpl(gateway)
 
-    private fun addNote(title: String, body: String?) {
+    private fun addNote(title: String, body: String?) = runBlockingTest {
         val request = AddNote.Request(title, body)
         val response = useCase.execute(request)
         assertTrue(response.id.isNotEmpty())

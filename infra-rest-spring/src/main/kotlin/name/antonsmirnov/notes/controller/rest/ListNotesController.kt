@@ -1,5 +1,6 @@
 package name.antonsmirnov.notes.controller.rest
 
+import kotlinx.coroutines.runBlocking
 import name.antonsmirnov.notes.usecase.ListNotes
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
@@ -21,12 +22,11 @@ class ListNotesController(private val useCase: ListNotes) {
         val notes: Collection<NoteJson>)
 
     @RequestMapping("/api/list")
-    fun list(): ResponseJson
-    {
+    fun list(): ResponseJson = runBlocking {
         // execute interactor
         val response = useCase.execute()
 
         // map canonical dto back to JSON dto and return
-        return ResponseJson(response.notes.map { NoteJson(it.id!!, it.title, it.body) })
+        ResponseJson(response.notes.map { NoteJson(it.id!!, it.title, it.body) })
     }
 }

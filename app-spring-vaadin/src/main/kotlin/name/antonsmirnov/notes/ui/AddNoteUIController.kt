@@ -1,5 +1,6 @@
 package name.antonsmirnov.notes.ui
 
+import kotlinx.coroutines.runBlocking
 import com.vaadin.flow.component.UI
 import com.vaadin.flow.component.button.Button
 import com.vaadin.flow.component.formlayout.FormLayout
@@ -31,12 +32,14 @@ class AddNoteUIController(private val useCase: AddNote) : VerticalLayout() {
             navigateToList(ui)
         }
         val addButton = Button("Add note") {
-            try {
-                val response = useCase.execute(AddNote.Request(titleField.value, bodyField.value))
-                Notification.show("Note with id=${response.id} added")
-                navigateToList(ui)
-            } catch (e: Exception) {
-                Notification.show("Failed to add the note!")
+            runBlocking {
+                try {
+                    val response = useCase.execute(AddNote.Request(titleField.value, bodyField.value))
+                    Notification.show("Note with id=${response.id} added")
+                    navigateToList(ui)
+                } catch (e: Exception) {
+                    Notification.show("Failed to add the note!")
+                }
             }
         }
         add(HorizontalLayout(cancelButton, addButton))
